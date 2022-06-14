@@ -77,14 +77,6 @@ function getBorderInfoComputeRange(dataset_row_st,dataset_row_ed,dataset_col_st,
                                     borderInfoCompute[bd_r + "_" + bd_c_left].r = { "color": borderColor, "style": borderStyle }; 
                                 }
                             }
-
-                            let mc = cfg["merge"] || {};  
-                            for (const key in mc) {
-                                let {c,r,cs,rs} = mc[key];
-                                if(bd_c1 <= c + cs - 1 && bd_c1 > c && bd_r >= r && bd_r <= r + rs -1){
-                                    borderInfoCompute[bd_r + "_" + bd_c1].l = null;
-                                }
-                            }
                         }
                     }
                     else if(borderType == "border-right"){
@@ -113,13 +105,6 @@ function getBorderInfoComputeRange(dataset_row_st,dataset_row_ed,dataset_col_st,
                                 }
                                 else{
                                     borderInfoCompute[bd_r + "_" + bd_c_right].l = { "color": borderColor, "style": borderStyle }; 
-                                }
-                            }
-                            let mc = cfg["merge"] || {};  
-                            for (const key in mc) {
-                                let {c,r,cs,rs} = mc[key];
-                                if(bd_c2 < c + cs - 1 && bd_c2 >= c && bd_r >= r && bd_r <= r + rs -1){
-                                    borderInfoCompute[bd_r + "_" + bd_c2].r = null;
                                 }
                             }
                         }
@@ -152,14 +137,6 @@ function getBorderInfoComputeRange(dataset_row_st,dataset_row_ed,dataset_col_st,
                                     borderInfoCompute[bd_r_top + "_" + bd_c].b = { "color": borderColor, "style": borderStyle };
                                 }
                             }
-
-                            let mc = cfg["merge"] || {};  
-                            for (const key in mc) {
-                                let {c,r,cs,rs} = mc[key];
-                                if(bd_r1 <= r + rs - 1 && bd_r1 > r && bd_c >= c && bd_c <= c + cs -1){
-                                    borderInfoCompute[bd_r1 + "_" + bd_c].t = null;
-                                }
-                            }
                         }
                     }
                     else if(borderType == "border-bottom"){
@@ -188,14 +165,6 @@ function getBorderInfoComputeRange(dataset_row_st,dataset_row_ed,dataset_col_st,
                                 }
                                 else{
                                     borderInfoCompute[bd_r_bottom + "_" + bd_c].t = { "color": borderColor, "style": borderStyle }; 
-                                }
-                            }
-
-                            let mc = cfg["merge"] || {};  
-                            for (const key in mc) {
-                                let {c,r,cs,rs} = mc[key];
-                                if(bd_r2 < r + rs - 1 && bd_r2 >= r && bd_c >= c && bd_c <= c + cs -1){
-                                    borderInfoCompute[bd_r2 + "_" + bd_c].b = null;
                                 }
                             }
                         }
